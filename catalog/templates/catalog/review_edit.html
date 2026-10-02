@@ -1,0 +1,62 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}Edit Review — Beauty{% endblock %}
+
+{% block content %}
+
+<main class="review-edit-page">
+
+    <div class="review-edit-container">
+
+        <div class="review-edit-header">
+            <p>YOUR REVIEW</p>
+            <h1>EDIT REVIEW</h1>
+        </div>
+
+        <div class="review-edit-product">
+            <span>{{ review.product.brand.name }}</span>
+            <strong>{{ review.product.name }}</strong>
+        </div>
+
+        <form method="post" class="review-edit-form">
+
+            {% csrf_token %}
+
+            <div class="edit-field">
+                <label for="{{ form.text.id_for_label }}">
+                    REVIEW
+                </label>
+
+                {{ form.text }}
+            </div>
+
+            <div class="edit-field">
+                <label for="{{ form.rating.id_for_label }}">
+                    RATING
+                </label>
+
+                {{ form.rating }}
+            </div>
+
+            <div class="edit-actions">
+
+                <button type="submit" class="save-review">
+                    SAVE CHANGES
+                </button>
+
+                <a
+                    href="{% url 'product_detail' review.product.pk %}"
+                    class="cancel-review"
+                >
+                    CANCEL
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+{% endblock %}

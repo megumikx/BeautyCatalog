@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Beauty Catalog{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'catalog/style.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog/brands.css' %}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="location">
+        ♢ <span>Baku</span>
+    </div>
+
+    <a href="{% url 'product_list' %}" class="logo">
+        BEAUTY
+    </a>
+
+    <div class="header-icons">
+        <span>⌕</span>
+        <span>♡</span>
+        <span>♙</span>
+    </div>
+
+</header>
+
+
+<nav class="navigation">
+
+    <a href="{% url 'product_list' %}">catalog</a>
+    <a href="{% url 'brand_list' %}">brands</a>
+    <a href="#">categories</a>
+</nav>
+
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+
+<footer>
+    <p>BEAUTY CATALOG</p>
+</footer>
+
+</body>
+</html>

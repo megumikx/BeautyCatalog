@@ -1,0 +1,76 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}Beauty Catalog{% endblock %}
+
+{% block content %}
+
+<section class="catalog-header">
+
+    <h1>BEAUTY CATALOG</h1>
+
+    <div class="filters">
+
+        <select>
+            <option>All Brands</option>
+        </select>
+
+        <select>
+            <option>All Categories</option>
+        </select>
+
+    </div>
+
+</section>
+
+
+<section class="products">
+
+    {% for product in products %}
+
+    <article class="product-card">
+
+        <a href="{% url 'product_detail' product.pk %}" class="product-image">
+
+            {% if product.image %}
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+            {% else %}
+            <div class="image-placeholder">
+                {{ product.brand.name }}
+            </div>
+            {% endif %}
+
+            <span class="favorite">♡</span>
+
+        </a>
+
+
+        <div class="product-info">
+
+            <p class="product-category">
+                {{ product.category.name|default:"BEAUTY" }}
+            </p>
+
+            <h2>
+                <a href="{% url 'product_detail' product.pk %}">
+                    {{ product.name }}
+                </a>
+            </h2>
+            <p class="product-brand">
+                {{ product.brand.name }}
+            </p>
+
+        </div>
+
+    </article>
+
+    {% empty %}
+
+    <p class="empty">
+        No products available.
+    </p>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

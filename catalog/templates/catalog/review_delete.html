@@ -1,0 +1,29 @@
+{% extends "catalog/base.html" %}
+
+{% block title %}Delete Review{% endblock %}
+
+{% block content %}
+
+<section class="review-page">
+
+    <h1>DELETE REVIEW</h1>
+
+    <p>Are you sure you want to delete your review?</p>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <button type="submit">
+            DELETE
+        </button>
+
+        <a href="{% url 'product_detail' review.product.pk %}">
+            CANCEL
+        </a>
+
+    </form>
+
+</section>
+
+{% endblock %}

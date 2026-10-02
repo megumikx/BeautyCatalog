@@ -1,0 +1,91 @@
+.brands-page {
+    padding: 70px 5% 100px;
+}
+
+.brands-page h1 {
+    margin: 0 0 55px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+
+/* alphabet */
+
+.alphabet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 28px;
+
+    padding: 20px 0;
+
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.alphabet a {
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.alphabet a:hover {
+    color: #000;
+}
+
+
+/* brands */
+
+.brands-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    column-gap: 80px;
+    row-gap: 22px;
+
+    margin-top: 60px;
+}
+
+.brand-name {
+    color: #111;
+    text-decoration: none;
+
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.brand-name:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 750px) {
+
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 40px;
+    }
+
+    .alphabet {
+        gap: 18px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .brands-page {
+        padding: 40px 20px;
+    }
+
+    .brands-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
