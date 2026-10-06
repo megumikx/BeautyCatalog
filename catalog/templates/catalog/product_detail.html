@@ -29,26 +29,15 @@
         <div class="product-gallery">
 
             <div class="product-image-large">
-
                 {% if product.image %}
-
-                <img
-                        src="{{ product.image }}"
-                        alt="{{ product.name }}"
-                >
-
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
                 {% else %}
-
                 <div class="no-image">
                     {{ product.brand.name }}
                 </div>
-
                 {% endif %}
 
-                <button class="image-favorite">
-                    ♡
-                </button>
-
+                <button class="image-favorite">♡</button>
             </div>
 
         </div>
